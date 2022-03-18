@@ -48,11 +48,19 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    _controller.addListener(() {
-      setState(() {
-        _offset = min(max(0, _controller.offset / 6 - 16), 32);
-      });
+    _controller.addListener(moveOffset);
+  }
+
+  moveOffset() {
+    setState(() {
+      _offset = min(max(0, _controller.offset / 6 - 16), 32);
     });
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(moveOffset);
+    super.dispose();
   }
 
   @override
@@ -86,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          // Used to get the stretch effect to not be above the SliverAppBar
+// Used to get the stretch effect to not be above the SliverAppBar
           const SliverToBoxAdapter(),
           SliverAppBar(
             backgroundColor: Colors.black,
