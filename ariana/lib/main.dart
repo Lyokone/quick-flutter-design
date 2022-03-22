@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ariana Grande',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         highlightColor: Colors.transparent,
@@ -94,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-// Used to get the stretch effect to not be above the SliverAppBar
+          // Used to get the stretch effect to not be above the SliverAppBar
           const SliverToBoxAdapter(),
           SliverAppBar(
             backgroundColor: Colors.black,
